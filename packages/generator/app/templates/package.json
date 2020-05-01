@@ -12,7 +12,9 @@
     "lint": "eslint . && npm run stylelint",
     "stylelint": "stylelint --ignore-path .gitignore **/*.css",
     "ci-test": "npm run lint && xvfb-maybe karma start --teamcity",
-    "start": "webpack-dev-server -d --history-api-fallback --inline --hot --colors --port <%= port %>"
+    "start": "webpack-dev-server -d --history-api-fallback --inline --hot --colors --port <%= port %>",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "babel": {
     "presets": [
@@ -42,7 +44,8 @@
     "redbox-react": "^1.6.0",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.8.0"
+    "webpack-dev-server": "^3.8.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@jetbrains/eslint-config": "^4.0.6",
@@ -73,5 +76,6 @@
   },
   "engines": {
     "node": ">=8.0.0"
-  }
+  },
+  "snyk": true
 }
